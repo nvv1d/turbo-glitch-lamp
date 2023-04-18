@@ -84,12 +84,12 @@ app.use(
 /* keepalive  begin */
 function keepalive() {
   // 1.请求主页，保持唤醒
-  let glitch_app_url = `https://${PROJECT_DOMAIN}.glitch.me`;
-  exec("curl " + glitch_app_url, function (err, stdout, stderr) {
+  let cyclic_app_url = `https://${PROJECT_DOMAIN}.cyclic.app`;
+  exec("curl " + cyclic_app_url, function (err, stdout, stderr) {
   });
 
   // 2.请求服务器进程状态列表，若web没在运行，则调起
-  exec("curl " + glitch_app_url + "/status", function (err, stdout, stderr) {
+  exec("curl " + cyclic_app_url + "/status", function (err, stdout, stderr) {
     if (!err) {
       if (stdout.indexOf("./web.js -c /tmp/config.json") != -1) {
       } else {
