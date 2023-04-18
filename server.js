@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
 
 //获取系统进程表
 app.get("/status", (req, res) => {
-  let cmdStr = "ps -ef";
+  let cmdStr = "pgrep -a";
   exec(cmdStr, function (err, stdout, stderr) {
     if (err) {
       res.type("html").send("<pre>命令行执行错误：\n" + err + "</pre>");
